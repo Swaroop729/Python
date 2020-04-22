@@ -1,19 +1,10 @@
-s = input()
+from os import walk
 
-vowels = 'AEIOU'
-
-kevsc = 0
-stusc = 0
-for i in range(len(s)):
-    if s[i] in vowels:
-        kevsc += (len(s)-i)
-    else:
-        stusc += (len(s)-i)
-        print(stusc)
-
-if kevsc > stusc:
-    print ("Kevin", kevsc)
-elif kevsc < stusc:
-    print ("Stuart", stusc)
-else:
-    print ("Draw")
+f=[]
+mypath='C:\\Users\\yella\\Desktop\\Python_code\\Python_Basics\\Automation'
+for (dirpath,dirnames,filenames) in walk(mypath):
+    f.extend(filenames)
+    #f = [x for x in f if x.endswith(".xlsx")]
+    f = [x for x in f if (".xls") in x]
+print(f)
+#print([ x for x in walk(mypath)])
